@@ -30,3 +30,19 @@ class MotorCommand(Node):
         self.motor_right.set_speed(speed_right)
 
         self.get_logger().info(f'Left Motor Speed: {speed_left}, Right Motor Speed: {speed_right}')
+        
+def main(args=None):
+    '''
+    Init ROS, launch node, spin, cleanup
+    '''
+    rclpy.init(args=args)
+    minimal_subscriber = MotorCommand()
+    rclpy.spin(minimal_subscriber)
+
+    # Destroy the node explicitly,
+    # otherwise it will be done automatically
+    minimal_subscriber.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
