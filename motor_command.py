@@ -4,8 +4,8 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-import robot_model as rm
 import me416_utilities as mu
+import robot_model as rm
 
 class MotorCommand(Node):
     '''
@@ -30,7 +30,6 @@ class MotorCommand(Node):
         self.motor_right.set_speed(speed_right)
 
         self.get_logger().info(f'Left Motor Speed: {speed_left}, Right Motor Speed: {speed_right}')
-        
 def main(args=None):
     '''
     Init ROS, launch node, spin, cleanup
